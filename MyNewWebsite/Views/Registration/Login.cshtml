@@ -1,0 +1,25 @@
+﻿@model MyNewWebsite.Models.Users
+
+<div class="login-container">
+    <h2>Вход</h2>
+    <form asp-controller="Registration" asp-action="Login" method="post">
+        <div class="form-group">
+            <label asp-for="Login">Логин</label>
+            <input asp-for="Login" type="text" class="form-control" />
+            <span asp-validation-for="Login" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">Пароль</label>
+            <input asp-for="Password" type="password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </div>
+    </form>
+
+    <!-- Добавляем ссылку на регистрацию -->
+    <div class="registration-link">
+        <p>Нет аккаунта? <a asp-controller="Registration" asp-action="Registrations">Зарегистрироваться</a></p>
+    </div>
+</div>

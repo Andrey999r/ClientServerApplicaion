@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "Окно регистрации";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model MyNewWebsite.Models.Users
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .welcome-message {
+            text-align: center;
+            margin-bottom: 40px; /* Увеличенное расстояние от приветственной надписи до формы */
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .registration-container {
+            background-color: #fff;
+            padding: 45px; /* Увеличено для увеличения формы */
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 50%; /* Увеличено для формы */
+            max-width: 800px; /* Максимальная ширина контейнера */
+            min-width: 500px; /* Минимальная ширина контейнера */
+            box-sizing: border-box;
+        }
+
+            .registration-container h2 {
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 24px; /* Размер шрифта для заголовка */
+            }
+
+        .form-group {
+            margin-bottom: 25px; /* Увеличенное расстояние между элементами формы */
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 10px;
+                font-weight: bold;
+                font-size: 20px; /* Размер шрифта для меток */
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 16px;
+                box-sizing: border-box;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                font-size: 20px; /* Размер шрифта для полей ввода */
+            }
+
+                .form-group input[type="submit"] {
+                    background-color: #007BFF;
+                    color: #fff;
+                    cursor: pointer;
+                    border: none;
+                    font-size: 22px; /* Размер шрифта для кнопки */
+                    padding: 14px;
+                }
+
+                    .form-group input[type="submit"]:hover {
+                        background-color: #0056b3;
+                    }
+
+            .form-group a {
+                display: block;
+                text-align: center;
+                margin-top: 15px;
+                color: #007BFF;
+                text-decoration: none;
+                font-size: 18px; /* Размер шрифта для ссылки */
+            }
+
+                .form-group a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+    <div class="welcome-message">
+        Добро пожаловать на NewWebsite!
+    </div>
+    <div class="registration-container">
+        <h2>Регистрация</h2>
+        <form asp-controller="Registration" asp-action="Registrations">
+            <div class="form-group">
+                <label asp-for="Login">Логин</label>
+                <input asp-for="Login" type="text" class="form-control" />
+                <span asp-validation-for="Login" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Пароль</label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+            </div>
+        </form>
+
+        <div class="login-link">
+            <p>Уже есть аккаунт? <a asp-controller="Registration" asp-action="Login">Войти</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+

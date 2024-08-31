@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Users>
+
+@{
+    ViewData["Title"] = "Пользователи";
+}
+
+<h2>@ViewBag.Message</h2>
+
+<h3>Список пользователей</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Логин</th>
+            <th>Пароль</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Login</td>
+                <td>@user.Password</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Перейти на главную страницу", "MainPage", "MainPage")
